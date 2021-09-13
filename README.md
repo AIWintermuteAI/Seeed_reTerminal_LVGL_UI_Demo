@@ -1,7 +1,11 @@
 # Seeed_reTerminal_LVGL_UI_Demo
 Demo code for sample reTerminal UI application, written in C with LVGL 8.0
 
-For more details, visit Seeed Wiki at [WIP]
+<p align="center">
+<img alt="fft" src="resources/lvgl_reterminal.gif" width="100%">
+</p>
+
+For more details, visit [Seeed Wiki](https://wiki.seeedstudio.com/reTerminal-build-UI-using-LVGL/)
 
 
 ## Requirements

@@ -21,7 +21,7 @@
 /*********************
  *      DEFINES
  *********************/
-#define ACC_EVDEV_NAME "/dev/input/event2"
+#define ACC_EVDEV_NAME "/dev/input/event3"
 
 /**********************
  *      TYPEDEFS

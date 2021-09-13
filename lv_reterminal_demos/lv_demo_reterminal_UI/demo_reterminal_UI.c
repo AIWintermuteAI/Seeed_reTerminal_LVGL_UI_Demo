@@ -810,7 +810,7 @@ void system_timer_cb(lv_timer_t * timer)
 
     dsk_pct = get_available_space();
     eth0_num = get_current_network_speed();
-    light_num = get_light_sensor();
+    //light_num = get_light_sensor();
 
 }
 
@@ -822,6 +822,9 @@ evdev_lis3dh_read(&data);
 
 lv_chart_set_next_value(chart1, x_ser, data.x_val);
 lv_chart_set_next_value(chart1, y_ser, data.y_val);
-lv_chart_set_next_value(chart1, z_ser, data.z_val);
+lv_chart_set_next_value(chart
+
+
+1, z_ser, data.z_val);
 
 }
