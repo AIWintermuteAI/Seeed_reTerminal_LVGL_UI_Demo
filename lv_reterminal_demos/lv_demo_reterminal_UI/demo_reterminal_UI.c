@@ -16,6 +16,7 @@
 /*********************
  *      DEFINES
  *********************/
+#define DRY_RUN 0 //set to 1 if running on PC
 
 LV_FONT_DECLARE(digital_clock)
 
@@ -810,21 +811,29 @@ void system_timer_cb(lv_timer_t * timer)
 
     dsk_pct = get_available_space();
     eth0_num = get_current_network_speed();
-    //light_num = get_light_sensor();
-
+#ifndef DRY_RUN    
+    light_num = get_light_sensor();
+#else
+    light_num = lv_rand(0, 1024);
+#endif
 }
 
 
 void accelerometer_timer_cb(lv_timer_t * timer)
 {
 
-evdev_lis3dh_read(&data);
+#ifndef DRY_RUN    
+    evdev_lis3dh_read(&data);
 
-lv_chart_set_next_value(chart1, x_ser, data.x_val);
-lv_chart_set_next_value(chart1, y_ser, data.y_val);
-lv_chart_set_next_value(chart
+    lv_chart_set_next_value(chart1, x_ser, data.x_val);
+    lv_chart_set_next_value(chart1, y_ser, data.y_val);
+    lv_chart_set_next_value(chart1, z_ser, data.z_val);
+#else
+    lv_chart_set_next_value(chart1, x_ser, lv_rand(-1024, 1024));
+    lv_chart_set_next_value(chart1, y_ser, lv_rand(-1024, 1024));
+    lv_chart_set_next_value(chart1, z_ser, lv_rand(-1024, 1024));
+#endif
 
 
-1, z_ser, data.z_val);
 
 }
